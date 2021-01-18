@@ -1,0 +1,56 @@
+/*
+ * CAttrBitmapAttrResident.cpp
+ *
+ *  Created on: Nov 4, 2020
+ *      Author: wade4
+ */
+#include "NTFS_Common.h"
+#include "CNTFSVolume.h"
+#include "CAttrBase.h"
+#include "CAttrResident.h"
+#include "CAttrNonResident.h"
+#include "CAttrStdInfo.h"
+#include "NTFS_Attribute.h"
+#include "CFileRecord.h"
+#include "CAttrBitmapAttrResident.h"
+
+CAttrBitmapAttrResident::CAttrBitmapAttrResident(const ATTR_HEADER_COMMON *ahc, const CFileRecord *fr) : CAttrResident(ahc, fr) {
+}
+
+CAttrBitmapAttrResident::~CAttrBitmapAttrResident() {
+}
+
+BOOL CAttrBitmapAttrResident::IsClusterFree(ULONGLONG &cluster) {
+    if (!IsDataRunOK() || !BitmapBuf)
+        return FALSE;
+
+    if (IsNonResident()) {
+        LONGLONG idx = (LONGLONG) cluster >> 3;
+        DWORD clusterSize = ((CNTFSVolume*) this->FileRecord->Volume)->GetClusterSize();
+
+        LONGLONG clusterOffset = idx / clusterSize;
+        cluster -= (clusterOffset * clusterSize * 8);
+
+        // Read one cluster of data if buffer mismatch
+        if (CurrentCluster != clusterOffset) {
+            DWORD len;
+            if (ReadData(clusterOffset, BitmapBuf, clusterSize, &len) && len == clusterSize) {
+                CurrentCluster = clusterOffset;
+            } else {
+                CurrentCluster = -1;
+                return FALSE;
+            }
+        }
+    }
+
+    // All the Bitmap data is already in BitmapBuf
+    DWORD idx = (DWORD) (cluster >> 3);
+    if (IsNonResident() == FALSE) {
+        if (idx >= BitmapSize)
+            return TRUE;    // Resident data bounds check error
+    }
+
+    BYTE fac = (BYTE) (cluster % 8);
+
+    return ((BitmapBuf[idx] & (1 << fac)) == 0);
+}
