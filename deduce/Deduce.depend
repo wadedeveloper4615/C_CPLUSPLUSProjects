@@ -1,0 +1,64 @@
+# depslib dependency file v1.0
+1604255062 source:c:\projects\c_c++ projects\deduce\comma.cpp
+	"deduce.h"
+
+1604330010 c:\projects\c_c++ projects\deduce\deduce.h
+	<windows.h>
+	<winioctl.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<tchar.h>
+	<locale.h>
+	<tchar.h>
+	<shellapi.h>
+	"format.h"
+	"list.h"
+	"file.h"
+
+1604335465 c:\projects\c_c++ projects\deduce\format.h
+	<windows.h>
+	<winioctl.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<tchar.h>
+	<locale.h>
+	<tchar.h>
+	<shellapi.h>
+	"List.h"
+
+1604329733 c:\projects\c_c++ projects\deduce\list.h
+	<windows.h>
+	<winioctl.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<tchar.h>
+	<locale.h>
+	<tchar.h>
+	<shellapi.h>
+
+1604329673 c:\projects\c_c++ projects\deduce\file.h
+	<windows.h>
+	<winioctl.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<tchar.h>
+	<locale.h>
+	<tchar.h>
+	<shellapi.h>
+
+1604329996 source:c:\projects\c_c++ projects\deduce\deduce.cpp
+	"deduce.h"
+
+1604255096 source:c:\projects\c_c++ projects\deduce\error.cpp
+	"deduce.h"
+
+1604258815 source:c:\projects\c_c++ projects\deduce\file.cpp
+	"deduce.h"
+
+1604335967 source:c:\projects\c_c++ projects\deduce\print.cpp
+	"deduce.h"
+
