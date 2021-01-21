@@ -2,17 +2,18 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="NeuralNet" />
+		<Option title="NTFSDump" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug32">
-				<Option output="bin/Debug32/NeuralNet" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug32/NTFSDump" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug32/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-w" />
+					<Add option="-std=c++11" />
 					<Add option="-m32" />
 					<Add option="-g" />
 				</Compiler>
@@ -24,7 +25,7 @@
 				</Linker>
 			</Target>
 			<Target title="Release32">
-				<Option output="bin/Release32/NeuralNet" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release32/NTFSDump" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release32/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -32,9 +33,12 @@
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-flto" />
 					<Add option="-O3" />
+					<Add option="-w" />
+					<Add option="-std=c++11" />
 					<Add option="-m32" />
 				</Compiler>
 				<Linker>
+					<Add option="-O3" />
 					<Add option="-flto" />
 					<Add option="-s" />
 					<Add option="-static-libstdc++" />
@@ -44,12 +48,13 @@
 				</Linker>
 			</Target>
 			<Target title="Debug64">
-				<Option output="bin/Debug64/NeuralNet" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug64/NTFSDump" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug64/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-w" />
+					<Add option="-std=c++11" />
 					<Add option="-m64" />
 					<Add option="-g" />
 				</Compiler>
@@ -61,7 +66,7 @@
 				</Linker>
 			</Target>
 			<Target title="Release64">
-				<Option output="bin/Release64/NeuralNet" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release64/NTFSDump" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release64/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -69,9 +74,12 @@
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-flto" />
 					<Add option="-O3" />
+					<Add option="-w" />
+					<Add option="-std=c++11" />
 					<Add option="-m64" />
 				</Compiler>
 				<Linker>
+					<Add option="-O3" />
 					<Add option="-flto" />
 					<Add option="-s" />
 					<Add option="-static-libstdc++" />
@@ -86,24 +94,30 @@
 		</VirtualTargets>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-std=c++11" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="array.cpp" />
-		<Unit filename="array.h" />
-		<Unit filename="arrayPair.cpp" />
-		<Unit filename="arrayPair.h" />
-		<Unit filename="bamMatrix.cpp" />
-		<Unit filename="bamMatrix.h" />
-		<Unit filename="matrix.cpp" />
-		<Unit filename="matrix.h" />
-		<Unit filename="net.cpp" />
-		<Unit filename="net.h" />
-		<Unit filename="nn.cpp" />
-		<Unit filename="util.cpp" />
-		<Unit filename="util.h" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
+		<Unit filename="CAttrBase.cpp" />
+		<Unit filename="CAttrBase.h" />
+		<Unit filename="CAttrNonResident.cpp" />
+		<Unit filename="CAttrNonResident.h" />
+		<Unit filename="CAttrResident.cpp" />
+		<Unit filename="CAttrResident.h" />
+		<Unit filename="CAttrStdInfo.cpp" />
+		<Unit filename="CAttrStdInfo.h" />
+		<Unit filename="CAttrVolInfo.cpp" />
+		<Unit filename="CAttrVolInfo.h" />
+		<Unit filename="CAttrVolName.cpp" />
+		<Unit filename="CAttrVolName.h" />
+		<Unit filename="CFileRecord.cpp" />
+		<Unit filename="CFileRecord.h" />
+		<Unit filename="CNTFSVolume.cpp" />
+		<Unit filename="CNTFSVolume.h" />
+		<Unit filename="CPhysicalDrive.cpp" />
+		<Unit filename="CPhysicalDrive.h" />
+		<Unit filename="CSList.h" />
+		<Unit filename="Error.cpp" />
+		<Unit filename="NTFS.h" />
+		<Unit filename="NTFSDump.cpp" />
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
